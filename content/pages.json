@@ -1,0 +1,31 @@
+[
+ {"id":"guide","title":"快速开始","description":"完成绑定，开始第一次查询。","group":"开始","sections":[
+  {"id":"before","title":"准备账号","html":"<p>当前开放国服 CN。请先联系管理员，将自己的游戏账号加入启用的白名单。</p>"},
+  {"id":"bind","title":"完成全局绑定","html":"<ol><li>私聊机器人，发送 <code>/d申请绑定 &lt;游戏UID&gt;</code>。</li><li>等待管理员批准后，发送 <code>/d账号列表</code>。</li><li>发送 <code>/d绑定账号 u1</code>，设为全局默认。</li></ol><p>绑定只需完成一次。MySekai 与个人信息共用账号列表和默认选择。</p>"},
+  {"id":"first-query","title":"开始查询","html":"<div class=quick-pair><div><h3>查看名片</h3><p>先在游戏中设置并公开展示自定义个人信息。</p><pre><code>/dcp 1</code></pre></div><div><h3>查看 MySekai</h3><p>完成一次 MySekai 数据提交后，查看资源卡片。</p><pre><code>/dmsa</code></pre></div></div>"},
+  {"id":"select","title":"多个账号","html":"<p>发送 <code>/d绑定账号 u2</code> 切换全局默认；发送 <code>/dcp 1 u2</code> 或 <code>/dmsa u2</code> 仅临时选择账号。查询时的 u序号优先于全局默认。</p>"},
+  {"id":"syntax","title":"读懂指令格式","html":"<p><code>&lt;参数&gt;</code> 表示必填，<code>[参数]</code> 表示可选。发送时去掉尖括号和方括号，参数之间使用空格。<code>u1</code>、<code>u2</code> 是自己的绑定序号，不是游戏 UID。</p>"}]},
+ {"id":"accounts","title":"账号绑定","description":"一份账号列表，所有功能共用。","group":"功能","sections":[
+  {"id":"priority","title":"账号选择规则","html":"<p>查询中的 <code>u序号</code> 优先；未指定时使用全局默认。没有默认账号时会提示设置，不会自动切换到其他账号。</p><p>可选列表只包含已经批准且启用的账号。停用、解除归属后，授权会即时失效；请重新查看绑定序号。</p>"}]},
+ {"id":"mysekai","title":"MySekai · 烤森","description":"资源卡片、区域地图与数据状态。","group":"功能","sections":[
+  {"id":"submit","title":"先准备一次数据","html":"<p>MySekai 图片根据你最近一次成功提交的数据生成。首次使用可前往 <a href=https://dave.raivex.xyz/upload-data/ios-module/ target=_blank rel=noopener>iOS 模块页面 ↗</a>，按页面说明配置 Shadowrocket；然后进入或刷新游戏中的 MySekai。</p><p>账号白名单、模块令牌和 QQ 归属分别校验。若后台提示令牌待审核，请联系管理员处理。成功提交后，图片可以重复查看。</p>"},
+  {"id":"which-map","title":"选择图片","html":"<div class=table-wrap><table><thead><tr><th>想看什么</th><th>指令</th></tr></thead><tbody><tr><td>资源卡片</td><td><code>/dmsa</code></td></tr><tr><td>四宫格地图</td><td><code>/dmsm</code></td></tr><tr><td>四张独立地图</td><td><code>/dmsmap</code></td></tr><tr><td>资源卡片 + 四宫格</td><td><code>/dmsam</code></td></tr></tbody></table></div>"}]},
+ {"id":"personal-info","title":"个人信息 · 名片","description":"直接读取游戏中公开展示的自定义名片。","group":"功能","sections":[
+  {"id":"public","title":"公开展示后即可查询","html":"<p>在游戏中设置自定义个人信息并公开展示。机器人读取的是公开名片，不需要上传抓包文件。页码按游戏里的展示顺序排列，不按编辑槽位编号。</p>"},
+  {"id":"animation","title":"动态预览","html":"<p>在查询后加 <code>-p</code>，机器人会发送 GIF。当前输出原尺寸 15 秒片段，首次生成可能需要数分钟；重复查询相同内容可使用缓存。</p><pre><code>/dcp 4 -p</code></pre><p>15 秒是录制长度，不是动画周期。GIF 使用调色板；需要全彩动画时，可由管理员在个人信息后台导出 APNG。</p>"},
+  {"id":"coverage","title":"当前支持范围","html":"<div class=note><strong>部分组件仍在移植</strong><p>文字、图形、卡面、称号等已有原生渲染链路；含 generals 等尚未支持组件的名片会明确报错。此类错误需要补齐渲染组件，反复刷新不会解决。</p></div><p>当前只接通国服 CN。其他区服参数保留解析能力，尚不能查询。</p>"}]},
+ {"id":"tracking","title":"生日拔草跟踪","description":"发现匹配资源，再通知你。","group":"功能","sections":[
+  {"id":"workflow","title":"开启、筛选、关闭","html":"<p>先确认全局默认账号，在需要接收推送的群或私聊中开启跟踪；再按需筛选资源。关闭指令会停止当前 QQ 的全部跟踪。</p><p>跟踪依赖后续成功提交的 MySekai 数据，不会自行登录或刷新游戏。没有匹配资源时不发送通知。</p>"},
+  {"id":"destination","title":"账号与推送位置","html":"<p>跟踪记住开启时的游戏账号和对话位置。后续修改全局默认账号不会迁移已有跟踪。如需改动，请关闭后，在正确账号与对话中重新开启。</p>"}]},
+ {"id":"faq","title":"常见问题","description":"按提示定位问题。","group":"支持","sections":[
+  {"id":"no-account","title":"提示没有绑定或没有默认账号","html":"<p>先发送 <code>/d账号列表</code>。列表为空时，检查账号是否已加入白名单、归属申请是否获批、账号是否仍启用。有列表但无默认时，发送 <code>/d绑定账号 u1</code>。</p>"},
+  {"id":"no-data","title":"MySekai 提示没有可用图片","html":"<p>需要至少一次成功的数据提交。进入或刷新 MySekai 后，用 <code>/d抓包状态</code> 查看时间；时间没有变化时，请检查模块配置或联系管理员核对提交日志。</p>"},
+  {"id":"no-card","title":"名片提示未设置或页码超出范围","html":"<p>确认游戏中已设置公开展示的自定义个人信息。页码从 1 开始，按展示顺序选择；编辑器里存在的卡片不一定处于公开展示状态。</p>"},
+  {"id":"unsupported","title":"提示 generals 等尚未移植组件","html":"<p>这是当前渲染组件覆盖范围的限制。记录组件名称并反馈管理员；服务器会保留原始名片数据，不生成删掉组件的替代图。</p>"},
+  {"id":"slow","title":"动态预览为什么比较慢","html":"<p>首次生成需要原生逐帧渲染并编码，可能持续数分钟。管理后台会自动显示排队、读取、渲染及完成状态，不必刷新页面。重复查询可使用图片缓存。</p>"},
+  {"id":"force","title":"强制刷新为什么没有读取新资料","html":"<p><code>--force</code> 只跳过图片缓存，并有每人每分钟一次的限制；它不强制重新采集游戏资料。公开资料缓存约 5 分钟，等待更新后再查询即可。</p>"},
+  {"id":"privacy","title":"可以查询其他人的 UID 吗","html":"<p>不支持。名片和 MySekai 查询仅接受自己的已批准绑定账号；指定 <code>u2</code> 也只能选择自己的第二个账号。群内绑定使用 u序号，UID 申请请私聊。</p>"}]},
+ {"id":"admin","title":"管理员","description":"日常操作入口与管理指令。","group":"支持","sections":[
+  {"id":"console","title":"管理后台","html":"<p><a href=https://admin.raivex.xyz/admin target=_blank rel=noopener>打开 DaveBot 管理后台 ↗</a>，完成现有访问验证后，管理白名单、令牌与账号归属申请。</p><ul><li>MySekai：数据记录、资源图片与地图。</li><li>个人信息：选择绑定账号、提交渲染任务、下载 PNG / GIF / APNG。</li><li>游戏查询：查看查询账号授权、初始化状态及诊断日志。</li></ul>"},
+  {"id":"module","title":"功能独立运行","html":"<p>MySekai、个人信息与原生渲染服务分别运行。单个模块更新或重启不需要重启主服务；后台自动读取状态。模块重启后，尚未完成的任务可能需要重新提交。</p>"}]}
+]

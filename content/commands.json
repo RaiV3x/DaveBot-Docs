@@ -1,0 +1,339 @@
+[
+  {
+    "id": "apply",
+    "category": "accounts",
+    "title": "申请账号归属",
+    "usage": "/d申请绑定 <游戏UID>",
+    "description": "私聊机器人提交自己的游戏账号归属申请，管理员批准后才可用于查询。",
+    "aliases": [],
+    "arguments": [
+      [
+        "游戏UID",
+        "必填",
+        "8–24 位数字；账号须在启用的白名单内。"
+      ]
+    ],
+    "examples": [
+      "/d申请绑定 12345678"
+    ],
+    "notes": [
+      "请在私聊中发送。文档中的 UID 仅为示例。",
+      "申请获批后，还需选择全局默认账号。"
+    ]
+  },
+  {
+    "id": "list",
+    "category": "accounts",
+    "title": "查看绑定列表",
+    "usage": "/d账号列表",
+    "description": "列出自己已获批准且启用的账号，以及各账号的 u序号和默认状态。",
+    "aliases": [
+      "/d绑定列表"
+    ],
+    "examples": [
+      "/d账号列表"
+    ],
+    "notes": [
+      "账号按归属批准时间、游戏 UID 排序；多个功能共用这份列表。",
+      "账号停用或解除归属后，列表与序号可能变化，请重新查看。"
+    ]
+  },
+  {
+    "id": "default",
+    "category": "accounts",
+    "title": "设置全局默认账号",
+    "usage": "/d绑定账号 <u序号>",
+    "description": "切换 MySekai、名片等功能共用的默认账号。",
+    "aliases": [
+      "/d绑定抓包"
+    ],
+    "arguments": [
+      [
+        "u序号",
+        "必填",
+        "使用 /d账号列表 中的 u1、u2 等序号。"
+      ]
+    ],
+    "examples": [
+      "/d绑定账号 u1",
+      "/d绑定账号 u2"
+    ],
+    "notes": [
+      "私聊也可使用已批准的游戏 UID；群内请使用 u序号。",
+      "查询时附加 u2 只对当次生效，不会修改全局默认。"
+    ]
+  },
+  {
+    "id": "unbind",
+    "category": "accounts",
+    "title": "清除默认账号",
+    "usage": "/d解绑账号",
+    "description": "清除全局默认选择，保留已经批准的账号归属。",
+    "aliases": [
+      "/d解绑抓包"
+    ],
+    "examples": [
+      "/d解绑账号"
+    ],
+    "notes": [
+      "清除后，需重新设置默认，或在支持的查询指令中显式指定 u序号。",
+      "如需解除 QQ 与游戏账号的归属关系，请联系管理员。"
+    ]
+  },
+  {
+    "id": "account-status",
+    "category": "accounts",
+    "title": "查看默认状态",
+    "usage": "/d账号状态",
+    "description": "查看当前全局默认账号。",
+    "aliases": [],
+    "examples": [
+      "/d账号状态"
+    ],
+    "notes": [
+      "此指令查看账号选择；MySekai 数据提交时间请使用 /d抓包状态。"
+    ]
+  },
+  {
+    "id": "mysekai-help",
+    "category": "mysekai",
+    "title": "查看使用帮助",
+    "usage": "/dmshelp",
+    "description": "获取 MySekai 指令帮助和文档入口。",
+    "aliases": [
+      "/d"
+    ],
+    "examples": [
+      "/dmshelp"
+    ]
+  },
+  {
+    "id": "resources",
+    "category": "mysekai",
+    "title": "查看资源卡片",
+    "usage": "/dmsa [u序号]",
+    "description": "查看所选账号最近一次成功提交的 MySekai 资源卡片。",
+    "aliases": [
+      "/d抓包图片"
+    ],
+    "arguments": [
+      [
+        "u序号",
+        "可选",
+        "省略时使用全局默认账号。"
+      ]
+    ],
+    "examples": [
+      "/dmsa",
+      "/dmsa u2"
+    ],
+    "notes": [
+      "图片可重复查询；没有成功提交记录时，请先进入或刷新 MySekai。",
+      "此指令复用已有数据，不会主动让游戏更新资源。"
+    ]
+  },
+  {
+    "id": "map",
+    "category": "mysekai",
+    "title": "查看四宫格地图",
+    "usage": "/dmsm [u序号]",
+    "description": "发送最近一次 MySekai 数据对应的四宫格地图。",
+    "aliases": [],
+    "arguments": [
+      [
+        "u序号",
+        "可选",
+        "省略时使用全局默认账号。"
+      ]
+    ],
+    "examples": [
+      "/dmsm",
+      "/dmsm u2"
+    ]
+  },
+  {
+    "id": "site-maps",
+    "category": "mysekai",
+    "title": "分别查看地图",
+    "usage": "/dmsmap [u序号]",
+    "description": "按顺序分别发送四张区域地图，方便放大查看。",
+    "aliases": [],
+    "arguments": [
+      [
+        "u序号",
+        "可选",
+        "省略时使用全局默认账号。"
+      ]
+    ],
+    "examples": [
+      "/dmsmap"
+    ],
+    "notes": [
+      "当前发送地点 5、6、7、8 中已经生成的地图。"
+    ]
+  },
+  {
+    "id": "all-images",
+    "category": "mysekai",
+    "title": "同时查看资源与地图",
+    "usage": "/dmsam [u序号]",
+    "description": "一起发送资源卡片和四宫格地图。",
+    "aliases": [],
+    "arguments": [
+      [
+        "u序号",
+        "可选",
+        "省略时使用全局默认账号。"
+      ]
+    ],
+    "examples": [
+      "/dmsam",
+      "/dmsam u2"
+    ]
+  },
+  {
+    "id": "capture-status",
+    "category": "mysekai",
+    "title": "查看数据状态",
+    "usage": "/d抓包状态",
+    "description": "查看全局默认账号最近一次成功提交 MySekai 数据的时间。",
+    "aliases": [],
+    "examples": [
+      "/d抓包状态"
+    ],
+    "notes": [
+      "没有默认账号或授权失效时会提示；此指令不接受 u序号。"
+    ]
+  },
+  {
+    "id": "tracking-on",
+    "category": "tracking",
+    "title": "开启生日拔草跟踪",
+    "usage": "/d开启生日拔草跟踪",
+    "description": "对当前全局默认账号开启资源跟踪。后续成功提交的数据含匹配标红资源时，自动发送所在地图。",
+    "aliases": [],
+    "examples": [
+      "/d开启生日拔草跟踪"
+    ],
+    "notes": [
+      "推送到开启时所在的群或私聊；没有匹配资源时保持安静。",
+      "跟踪记录绑定开启时的游戏账号；切换全局默认不会迁移已有跟踪。"
+    ]
+  },
+  {
+    "id": "tracking-filter",
+    "category": "tracking",
+    "title": "选择跟踪资源",
+    "usage": "/d生日拔草跟踪 [资源名]",
+    "description": "设置已经开启的跟踪筛选条件，并检查最近一次成功提交的数据。",
+    "aliases": [],
+    "arguments": [
+      [
+        "资源名",
+        "可选",
+        "夕桐、钻石、四叶草、空白的音色；空白音符为兼容写法。"
+      ]
+    ],
+    "examples": [
+      "/d生日拔草跟踪 钻石",
+      "/d生日拔草跟踪 空白的音色",
+      "/d生日拔草跟踪 全部"
+    ],
+    "notes": [
+      "先开启跟踪。省略资源名或填写“全部”，恢复跟踪全部标红资源。",
+      "若最近数据含匹配资源，会向当前对话发送对应地图；没有匹配时不回复。"
+    ]
+  },
+  {
+    "id": "tracking-off",
+    "category": "tracking",
+    "title": "关闭生日拔草跟踪",
+    "usage": "/d关闭生日拔草跟踪",
+    "description": "关闭当前 QQ 的全部生日拔草跟踪记录。",
+    "aliases": [],
+    "examples": [
+      "/d关闭生日拔草跟踪"
+    ],
+    "notes": [
+      "不是只关闭当前默认游戏账号；此指令会停止当前 QQ 的全部跟踪。"
+    ]
+  },
+  {
+    "id": "custom-profile",
+    "category": "personal-info",
+    "title": "查询自定义个人信息",
+    "usage": "/dcp <页码> [u序号] [选项]",
+    "description": "读取自己绑定账号在游戏中公开展示的名片，每次生成一页。",
+    "aliases": [
+      "/d自定义个人信息",
+      "/d自定义资料卡"
+    ],
+    "arguments": [
+      [
+        "页码",
+        "必填",
+        "从 1 开始，按游戏中的展示顺序选择。"
+      ],
+      [
+        "u序号",
+        "可选",
+        "省略时使用全局默认账号。"
+      ],
+      [
+        "-p / --preview / 预览",
+        "可选",
+        "输出原尺寸 GIF 动态预览片段。"
+      ],
+      [
+        "--force / 强制刷新",
+        "可选",
+        "跳过图片缓存重新出图；每人每分钟至多生效一次，不重新采集游戏资料。"
+      ],
+      [
+        "-r / --region cn",
+        "可选",
+        "指定区服；当前已接通国服 cn。"
+      ],
+      [
+        "-v / --verbose",
+        "兼容",
+        "接受该参数，但不会改变查询结果。"
+      ],
+      [
+        "-h / --help",
+        "帮助",
+        "单独使用，例如 /dcp --help。"
+      ]
+    ],
+    "examples": [
+      "/dcp 1",
+      "/dcp 2 u2",
+      "/dcp 4 -p",
+      "/dcp 1 --force",
+      "/dcn自定义个人信息 1",
+      "/dcp --help"
+    ],
+    "notes": [
+      "无需用户上传抓包数据。仅支持自己的已批准绑定账号，不支持指定任意 UID 或 @他人。",
+      "区服前缀 cn/jp/tw/kr/en 放在 d 之后、cp 或中文别名之前，例如 /dcncp 1；显式 -r 优先。除 cn 外的区服尚未接通，会明确提示。",
+      "当前 GIF 为 15 秒录制片段，原画布 1830×813、30fps，保留 60Hz 原生更新；它不代表整张名片的动画周期。GIF 有调色板损失，全彩 APNG 可由管理员在后台生成。",
+      "游戏公开资料缓存约 5 分钟；图片缓存按名片内容和渲染版本复用。动态首次生成可能需要数分钟。",
+      "部分原生组件仍在移植。遇到 generals 等未支持组件时会明确报错，不输出省略组件的图片。"
+    ]
+  },
+  {
+    "id": "debug",
+    "category": "admin",
+    "title": "查看运行概况",
+    "usage": "/d抓包调试",
+    "description": "查看服务运行情况与白名单玩家数量。",
+    "aliases": [],
+    "examples": [
+      "/d抓包调试"
+    ],
+    "access": "仅管理员",
+    "notes": [
+      "仅配置为管理员的 QQ 可使用；详细错误请在受保护的管理后台查看。"
+    ]
+  }
+]
