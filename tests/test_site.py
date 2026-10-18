@@ -47,7 +47,7 @@ class SiteTests(unittest.TestCase):
         # Region parsing support must not be advertised as an active region.
         profile=(ROOT/'dist/personal-info/index.html').read_text(encoding='utf-8')
         self.assertIn('除 cn 外的区服尚未接通',profile)
-        self.assertIn('15 秒是录制长度，不是动画周期',profile)
+        self.assertIn('15 秒是检测上限，不是动画周期',profile)
     def test_links_fragments_and_search_results_resolve(self):
         out=ROOT/'dist';parsers={}
         for file in out.rglob('*.html'):
