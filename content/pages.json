@@ -102,7 +102,7 @@
       {
         "id": "animation",
         "title": "动态预览",
-        "html": "<p>在查询后加 <code>-p</code>，机器人会发送 GIF。当前输出原尺寸 15 秒片段，首次生成可能需要数分钟；重复查询相同内容可使用缓存。</p><pre><code>/dcp 4 -p</code></pre><p>15 秒是录制长度，不是动画周期。GIF 使用调色板；需要全彩动画时，可由管理员在个人信息后台导出 APNG。</p>"
+        "html": "<p>查询当前页含 <code>line-indent</code> 时，自动渲染并发送 GIF，不输出 PNG，无需加参数。静态名片默认发送 PNG。</p><pre><code>/dcp 4</code></pre><p>动图使用原画布 1830×813、60fps，15 秒是录制长度，不是动画周期。<code>-p</code> 保留为强制动图参数。首次生成可能需要数分钟，重复查询相同内容可使用 GIF 缓存。</p>"
       },
       {
         "id": "coverage",
