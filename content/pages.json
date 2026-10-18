@@ -102,7 +102,7 @@
       {
         "id": "animation",
         "title": "动态预览",
-        "html": "<p>查询当前页含 <code>line-indent</code> 时，自动渲染并发送 GIF，不输出 PNG，无需加参数。静态名片默认发送 PNG。</p><pre><code>/dcp 4</code></pre><p>动图使用原画布 1830×813、60fps，15 秒是录制长度，不是动画周期。<code>-p</code> 保留为强制动图参数。首次生成可能需要数分钟，重复查询相同内容可使用 GIF 缓存。</p>"
+        "html": "<p>查询当前页含 <code>line-indent</code> 时，自动渲染并发送 120fps MP4 视频，不输出 PNG，无需加参数。静态名片默认发送 PNG。</p><pre><code>/dcp 4</code></pre><p>视频采用 120Hz 原生录制与 120fps 编码，保留 1830×813 原画布内容；为兼容 QQ 视频编码，仅在底部补 1 像素，不缩放。15 秒是录制长度，不是动画周期。<code>-p</code> 保留为强制动图参数。首次生成可能需要数分钟，重复查询相同内容可使用视频缓存。收到指令会立即回复接收提示，后台实时显示录制帧数、编码和发送状态。</p>"
       },
       {
         "id": "coverage",
@@ -181,7 +181,7 @@
       {
         "id": "console",
         "title": "管理后台",
-        "html": "<p><a href=https://admin.raivex.xyz/admin target=_blank rel=noopener>打开 DaveBot 管理后台 ↗</a>，完成现有访问验证后，管理白名单、令牌与账号归属申请。</p><ul><li>MySekai：数据记录、资源图片与地图。</li><li>个人信息：选择绑定账号、提交渲染任务、下载 PNG / GIF / APNG。</li><li>游戏查询：查看查询账号授权、初始化状态及诊断日志。</li></ul>"
+        "html": "<p><a href=https://admin.raivex.xyz/admin target=_blank rel=noopener>打开 DaveBot 管理后台 ↗</a>，完成现有访问验证后，管理白名单、令牌与账号归属申请。</p><ul><li>MySekai：数据记录、资源图片与地图。</li><li>个人信息：选择绑定账号、提交渲染任务、播放与下载 MP4 / PNG / APNG。</li><li>游戏查询：查看查询账号授权、初始化状态及诊断日志。</li></ul>"
       },
       {
         "id": "module",
