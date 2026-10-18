@@ -31,9 +31,9 @@ class SiteTests(unittest.TestCase):
         # The standalone public docs repository has no private backend checkout.
         # In DaveBot's workspace, additionally check actual parser coverage.
         if source.is_dir():
-            host=(source/'platform/account_commands.rs').read_text(encoding='utf-8')
-            account_names=re.findall(r'^        ("[^\n]+") =>',host,re.M)
-            names={'/d'+value for line in account_names for value in re.findall(r'"([^"\n]+)"',line)}
+            host=(source/'modules/accounts/commands.rs').read_text(encoding='utf-8')
+            account_names=host.split('pub const NAMES:',1)[1].split('];',1)[0]
+            names={'/d'+value for value in re.findall(r'"([^"\n]+)"',account_names)}
             bot=(source/'modules/mysekai/commands.rs').read_text(encoding='utf-8')
             recognized=bot.split('if !matches!(',1)[1].split(') {',1)[0]
             names|={'/d'+value for value in re.findall(r'"([^"\n]*)"',recognized)}
@@ -59,7 +59,7 @@ class SiteTests(unittest.TestCase):
             path,_,fragment=url.partition('#');target=out/path.lstrip('/')/'index.html'
             self.assertTrue(target.is_file(),url)
             if fragment:self.assertIn(fragment,parsers[target.resolve()].ids,url)
-        self.assertEqual(len(self.commands),16)
+        self.assertEqual(len(self.commands),21)
         self.assertTrue(any('/dcp' in row['description'] and row['type']=='指令' for row in search))
     def test_server_never_exposes_source_and_disallows_writes(self):
         spec=importlib.util.spec_from_file_location('docs_server',ROOT/'server.py');module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
